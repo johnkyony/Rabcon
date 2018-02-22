@@ -1,0 +1,2 @@
+class ClockOutsController < ApplicationController
+end

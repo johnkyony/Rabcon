@@ -11,7 +11,121 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221115306) do
+ActiveRecord::Schema.define(version: 20180222174445) do
+
+  create_table "clock_ins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_leader_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "clock_ins", ["team_leader_id"], name: "index_clock_ins_on_team_leader_id"
+  add_index "clock_ins", ["user_id"], name: "index_clock_ins_on_user_id"
+
+  create_table "clock_outs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_leader_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "clock_outs", ["team_leader_id"], name: "index_clock_outs_on_team_leader_id"
+  add_index "clock_outs", ["user_id"], name: "index_clock_outs_on_user_id"
+
+  create_table "daily_payments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clock_in_id"
+    t.integer  "clock_out_id"
+    t.float    "amount"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "daily_payments", ["clock_in_id"], name: "index_daily_payments_on_clock_in_id"
+  add_index "daily_payments", ["clock_out_id"], name: "index_daily_payments_on_clock_out_id"
+  add_index "daily_payments", ["user_id"], name: "index_daily_payments_on_user_id"
+
+  create_table "deparments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.float    "total_overtime_earning_for_work_week"
+    t.float    "wages_amount"
+    t.date     "date_of_payment"
+    t.date     "pay_period"
+    t.integer  "user_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+
+  create_table "payroll_details", force: :cascade do |t|
+    t.datetime "employees_work_week_start"
+    t.time     "work_week_hours"
+    t.integer  "basis_wages_paid"
+    t.time     "regular_hourly_payrate"
+    t.time     "daily_or_weekly_straight_time"
+    t.integer  "user_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "payroll_details", ["user_id"], name: "index_payroll_details_on_user_id"
+
+  create_table "staff_details", force: :cascade do |t|
+    t.string   "employee_full_name"
+    t.string   "address"
+    t.datetime "birthdate"
+    t.string   "id_or_passport_number"
+    t.string   "employee_number"
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "staff_details", ["user_id"], name: "index_staff_details_on_user_id"
+
+  create_table "taxes", force: :cascade do |t|
+    t.string   "name"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "team_leaders", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "team_member_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "team_leaders", ["team_id"], name: "index_team_leaders_on_team_id"
+  add_index "team_leaders", ["team_member_id"], name: "index_team_leaders_on_team_member_id"
+
+  create_table "team_members", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id"
+  add_index "team_members", ["user_id"], name: "index_team_members_on_user_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "department_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "teams", ["department_id"], name: "index_teams_on_department_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

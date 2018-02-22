@@ -1,0 +1,18 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employees_work_week_start: 2018-02-22 17:16:56
+  work_week_hours: 2018-02-22 17:16:56
+  basis_wages_paid: 1
+  regular_hourly_payrate: 2018-02-22 17:16:56
+  daily_or_weekly_straight_time: 2018-02-22 17:16:56
+  user: 
+
+two:
+  employees_work_week_start: 2018-02-22 17:16:56
+  work_week_hours: 2018-02-22 17:16:56
+  basis_wages_paid: 1
+  regular_hourly_payrate: 2018-02-22 17:16:56
+  daily_or_weekly_straight_time: 2018-02-22 17:16:56
+  user: 
