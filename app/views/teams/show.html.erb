@@ -1,0 +1,54 @@
+<div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h2 class="title">Team Members</h2>
+                                    <p class="category">Everyone in this team</p>
+                                </div>
+                                <div class="card-content">
+			   
+				<div class="row">
+                                    <div class="card-content table-responsive">
+                <table class="table table-hover">
+                    <thead class="text-warning">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <%  @employees.each do |employee| %>
+                        <tr>
+                            <td><%= employee.id %></td>
+                            <td><%= employee.user.name %></td>
+                            <td><%= employee.user.email %></td>
+                        </tr>
+                        <% end %>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-profile">
+                                <div class="card-avatar">
+                                    <a href="#pablo">
+                                        <img class="img" src="/material-dashboard/assets/img/faces/marc.jpg" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h6 class="category text-gray">Team Leader</h6>
+                                    <h4 class="card-title"><%= @team_leader_details.team_member.user.email %></h4>
+                                    <p class="card-content">
+                                    <%= @team_leader_details.team_member.user.name %>
+                                    </p>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+

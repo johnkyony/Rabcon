@@ -11,15 +11,7 @@ class ApplicationController < ActionController::Base
   
   protected
   
-  def team_leader_status
-    if user_signed_in?
-       @team_leader_status = TeamLeader.find_by_team_member_id(current_user.id)
-    end
-   
-    
-    
-  end
-
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])

@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = User.all
+    @employees = User.staff
+
   end
 end

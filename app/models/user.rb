@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:client, :staff , :contractor , :developer, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  has_many :team_members
+  has_many :team_leaders
 
   def set_default_role
     self.role ||= :client

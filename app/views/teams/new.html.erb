@@ -7,32 +7,29 @@
                                     <p class="category">Complete employees profile</p>
                                 </div>
                                 <div class="card-content">
-                                    <%= form_for(@department ,  url: departments_path , method: :post) do |f| %>
+                                    <%= form_for  [ :department, @team ] do |f| %>
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Deparment Name</label>
+                                                    <label class="control-label">Team Name</label>
                                                     <%= f.text_field(:name  , class: "form-control")  %>
                                                 </div>
                                             </div>
-                                           
-                                            
-                                        <div class="row">
-                                            <div class="col-md-12">
+                                          
+                                            <div class="col-md-4">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Deparment Description</label>
-                                                     <%= f.text_field(:description  , class: "form-control")  %>
+                                                    <label class="control-label">Team Description</label>
+							 <%= f.text_field(:description  , class: "form-control")  %>
+
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                        <%= f.submit "Save Changes" , class: "btn btn-primary pull-right"%>
-                                       
+                                           <%= f.submit "Save Changes" , class: "btn btn-primary pull-right"%>
+
                                         <div class="clearfix"></div>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+`
+                                        </div>
+					<% end %>
+                 			</div>
+ 					</div>
+					</div>
+					</div>

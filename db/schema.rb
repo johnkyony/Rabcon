@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223023558) do
+ActiveRecord::Schema.define(version: 20180223065553) do
 
   create_table "clock_ins", force: :cascade do |t|
     t.integer  "user_id"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20180223023558) do
     t.integer  "department_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "description"
   end
 
   add_index "teams", ["department_id"], name: "index_teams_on_department_id"
