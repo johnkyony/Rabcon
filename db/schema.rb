@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222174445) do
+ActiveRecord::Schema.define(version: 20180223023558) do
 
   create_table "clock_ins", force: :cascade do |t|
     t.integer  "user_id"
@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20180222174445) do
   add_index "payments", ["user_id"], name: "index_payments_on_user_id"
 
   create_table "payroll_details", force: :cascade do |t|
-    t.datetime "employees_work_week_start"
-    t.time     "work_week_hours"
+    t.string   "employees_work_week_start"
+    t.integer  "work_week_hours"
     t.integer  "basis_wages_paid"
-    t.time     "regular_hourly_payrate"
-    t.time     "daily_or_weekly_straight_time"
+    t.float    "regular_hourly_payrate"
+    t.integer  "daily_or_weekly_straight_time"
     t.integer  "user_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

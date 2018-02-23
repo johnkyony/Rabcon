@@ -1,0 +1,38 @@
+ <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="green">
+                                    <h4 class="title">Employees Profile</h4>
+                                    <p class="category">Complete employees profile</p>
+                                </div>
+                                <div class="card-content">
+                                    <%= form_for(@department ,  url: departments_path , method: :post) do |f| %>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Deparment Name</label>
+                                                    <%= f.text_field(:name  , class: "form-control")  %>
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Deparment Description</label>
+                                                     <%= f.text_field(:description  , class: "form-control")  %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <%= f.submit "Save Changes" , class: "btn btn-primary pull-right"%>
+                                       
+                                        <div class="clearfix"></div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>

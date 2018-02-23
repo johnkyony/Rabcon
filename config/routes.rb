@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+
+
+
+  devise_scope :user do
+    get "sign_out", :to => "devise/sessions#destroy"
+  end
+
   devise_for :users
   resources :users
   
@@ -12,6 +20,12 @@ Rails.application.routes.draw do
   resources :teams
   resources :team_members
   resources :team_leaders
+  resources :admins
+  resources :staffs
+  resources :clients
+  resources :developers
+  resources :contractors
+  resources :employees
   
   # hrm routes 
   resources :users do 

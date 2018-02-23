@@ -1,0 +1,33 @@
+<div class="row">
+        
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="orange">
+                <h4 class="title">Employees </h4>
+                <p class="category">All your companies employees</p>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table table-hover">
+                    <thead class="text-warning">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <%  @employees.each do |employee| %>
+                        <tr>
+                            <td><%= employee.id %></td>
+                            <td><%= employee.name %></td>
+                            <td><%= employee.email %></td>
+                            <td><%= link_to "Employee Full Details" , user_staff_details_path(employee.id) , class: "btn btn-primary btn-round" %></td>
+                        </tr>
+                        <% end %>
+                        
+                    </tbody>
+                </table>
+            </div>
+             <a href="/users" class="btn btn-primary btn-round ">New Employee</a>
+        </div>
+    </div>
+</div>
