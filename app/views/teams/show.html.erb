@@ -49,17 +49,20 @@
                                 </div>
                                 <div class="content">
                                     <% if ! @team_leader_details.blank? %>
-                                    <% if @team_leader_details.team_member.user.staff? %>
-                                    <h6 class="category text-gray">Team Leader</h6>
-                                    <h4 class="card-title"><%= @team_leader_details.team_member.user.email %></h4>
-                                    <p class="card-content">
-                                    <%= @team_leader_details.team_member.user.name %>
-                                    </p>
-                                    <% else %>
-                                    <p><%= @team_leader_details.team_member.user.name %> is no longer A staff Here please change Your Team Leader</p>
+                                        <% if @team_leader_details.team_member.user.staff? %>
+                                        <h6 class="category text-gray">Team Leader</h6>
+                                        <h4 class="card-title"><%= @team_leader_details.team_member.user.email %></h4>
+                                        <p class="card-content">
+                                        <%= @team_leader_details.team_member.user.name %>
+                                        </p>
+                                        <% else %>
+                                        <p><%= @team_leader_details.team_member.user.name %> is no longer A staff Here please change Your Team Leader</p>
+                                        <%= link_to "New Team Leader", department_teams_path(params[:department_id] ) , class: "btn btn-primary btn-round" %>
+                            
+                                        <% end %>
+                                    <% else %>    
                                     <%= link_to "New Team Leader", department_teams_path(params[:department_id] ) , class: "btn btn-primary btn-round" %>
-                        
-                                    <% end %>
+                            
                                     <% end %>
                                                                     </div>
                             </div>
