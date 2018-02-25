@@ -3,9 +3,7 @@
     <h3>Sign in</h3>
     <%= devise_error_messages! %>
     <div class="form-group">
-      <%- if devise_mapping.registerable? %>
-        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
-      <% end -%>
+     
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
@@ -16,7 +14,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
-      <%= f.submit 'Sign in', :class => 'button right' %>
+      <%= f.submit 'Sign in', :class => "btn btn-primary " %>
       <% if devise_mapping.rememberable? -%>
         <div class="checkbox" style="width:150px">
           <label>
@@ -24,5 +22,13 @@
           </label>
         </div>
       <% end -%>
+      <div class="form-group">
+         <%- if devise_mapping.registerable? %>
+        <%= link_to 'Sign up', new_registration_path(resource_name), class: "btn btn-primary "  %>
+      <% end -%>
+        
+      </div>
+      
+      
   <% end %>
 </div>
