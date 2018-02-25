@@ -9,6 +9,7 @@
                                 <div class="card-content">
 			   
 				<div class="row">
+				     <% if ! @employees.blank? %>
                                     <div class="card-content table-responsive">
                 <table class="table table-hover">
                     <thead class="text-warning">
@@ -18,7 +19,7 @@
                         <th></th>
                     </thead>
                     <tbody>
-                        <% if ! @employees.blank? %>
+                       
                         <%  @employees.each do |employee| %>
                         <tr>
                             <td><%= employee.id %></td>
@@ -27,14 +28,15 @@
                         </tr>
                        
                         <% end %>
-                         <% else%>  
+                        
+                        
+                    </tbody>
+                </table>
+                 <% else%>  
                         <p>The appears to be no members on this team please click link to place a staff in this link</p>
                         <%= link_to "Add Team Members", department_teams_path(params[:department_id] ) , class: "btn btn-primary btn-round" %>
                         
                         <% end %>
-                        
-                    </tbody>
-                </table>
             </div>
 
                                 </div>
