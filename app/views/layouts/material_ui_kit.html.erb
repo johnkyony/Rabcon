@@ -31,7 +31,7 @@
     -->
             <div class="logo">
                 <% if user_signed_in? %>
-                <a href="/employees" class="simple-text">
+                <a href="/departments" class="simple-text">
                     Rabcon
                 </a>
                 <% else %>
@@ -44,24 +44,24 @@
                 <ul class="nav">
                     <li class="active">
                          <% if user_signed_in? %>
-                        <a href="/employees">
+                        <a href="/departments">
                             
                             <p>Dashboard</p>
                         </a>
                        
                     </li>
-                    <!--<li>-->
-                    <!--    <a href="/employees">-->
-                            
-                    <!--        <p>Employees</p>-->
-                    <!--    </a>-->
-                    <!--</li>-->
                     <li>
-                        <a href="/departments">
+                        <a href="/employees">
                             
-                            <p>Department</p>
+                            <p>Employees</p>
                         </a>
                     </li>
+                    <!--<li>-->
+                    <!--    <a href="/departments">-->
+                            
+                    <!--        <p>Department</p>-->
+                    <!--    </a>-->
+                    <!--</li>-->
                      <% end %>
                     <!--<li>-->
                     <!--    <a href="./typography.html">-->

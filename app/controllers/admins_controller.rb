@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
   def index
-    redirect_to employees_path
+    redirect_to departments_path
   end
 end
