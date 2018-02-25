@@ -6,7 +6,7 @@ class StaffDetailsController < ApplicationController
         @user_details = User.find_by_id(params[:user_id])
         @staff_details = StaffDetail.find_by_user_id(params[:user_id])
         @payroll_details = PayrollDetail.find_by_user_id(params[:user_id])
-        @member_of_team = TeamMember.where(user_id: params[:user_id])
+        # @member_of_team = TeamMember.where(user_id: params[:user_id])
     end
     
     def new
