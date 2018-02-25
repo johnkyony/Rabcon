@@ -8,10 +8,11 @@ class StaffDetailsController < ApplicationController
         @payroll_details = PayrollDetail.find_by_user_id(params[:user_id])
         if @staff_details.blank?
             redirect_to new_user_staff_detail_path(params[:user_id])
-        end
         
-        if @payroll_details.blank?
+        else
+          if @payroll_details.blank?
             redirect_to new_user_payroll_detail_path(params[:user_id])
+          end
         end
         # @member_of_team = TeamMember.where(user_id: params[:user_id])
     end
