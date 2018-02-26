@@ -49,3 +49,7 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
+
+# the qr generator 
+gem 'rqrcode-with-patches', '~> 0.5.4'
+

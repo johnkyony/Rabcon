@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+
   devise_scope :user do
     get "sign_out", :to => "devise/sessions#destroy"
   end
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   resources :developers
   resources :contractors
   resources :employees
+  resources :qr_codes , only:[:new , :create]
   
   # hrm routes 
   resources :users do 
@@ -40,6 +42,11 @@ Rails.application.routes.draw do
       resources :team_members
       resources :team_leaders
     end
+  end
+  
+  # the user staff qr access code
+  resources :users do 
+     resources :qr_codes , only:[:new , :create]
   end
   root to: 'visitors#index'
 end
