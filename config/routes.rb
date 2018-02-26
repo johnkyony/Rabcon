@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'timesheets/index'
+
   devise_scope :user do
     get "sign_out", :to => "devise/sessions#destroy"
   end
