@@ -12,6 +12,7 @@
                         <th>Department Name</th>
                         <th>Department Description</th>
                         <th></th>
+                        <th></th>
 			<th></th>
                     </thead>
                     <tbody>
@@ -20,6 +21,7 @@
                             <td><%= department.name%></td>
                             <td><%= department.description%></td>
                             <td><%= link_to "View Teams" , department_teams_path(department.id ), class: "btn btn-primary btn-round" %></td>
+                            <td><%= link_to "New Team" , new_department_team_path(department.id), class:"btn btn-primary btn-round" %></td>
                         </tr>
                         <% end %>
                         
