@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
     def index
-        @departments = Deparment.all
+        @departments = Department.all
         if @departments.blank?
             flash[:notice] = "Please create at least one department"
             redirect_to new_department_path
