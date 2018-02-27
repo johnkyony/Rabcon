@@ -40,7 +40,7 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:name , :department_id, :description)
     end
     def set_department
-        @department = Deparment.find_by_id(params[:department_id])
+        @department = Department.find_by_id(params[:department_id])
     end
      
 end

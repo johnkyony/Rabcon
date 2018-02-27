@@ -1,6 +1,6 @@
 class CreateDeparments < ActiveRecord::Migration
   def change
-    create_table :deparments do |t|
+    create_table :departments do |t|
       t.string :name
       t.string :description
 

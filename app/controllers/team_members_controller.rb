@@ -33,7 +33,7 @@ class TeamMembersController < ApplicationController
     private 
     
     def set_department
-        @department = Deparment.find_by_id(params[:department_id])
+        @department = Department.find_by_id(params[:department_id])
     
     end
     

@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20180223065553) do
   add_index "daily_payments", ["clock_out_id"], name: "index_daily_payments_on_clock_out_id"
   add_index "daily_payments", ["user_id"], name: "index_daily_payments_on_user_id"
 
-  create_table "deparments", force: :cascade do |t|
+  create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false

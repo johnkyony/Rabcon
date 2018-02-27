@@ -8,11 +8,11 @@ class DepartmentsController < ApplicationController
     end
     
     def new
-        @department = Deparment.new
+        @department = Department.new
     end
     
     def create
-        @department = Deparment.new(department_params)
+        @department = Department.new(department_params)
         
         if @department.valid? 
             @department.save 
@@ -38,7 +38,7 @@ class DepartmentsController < ApplicationController
        @department = Department.find_by_id(params[:id])
    end
    def department_params
-     params.require(:deparment).permit(:name , :description)
+     params.require(:department).permit(:name , :description)
    end
    
 end
