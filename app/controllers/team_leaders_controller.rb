@@ -20,7 +20,9 @@ class TeamLeadersController < ApplicationController
     def edit 
     end
     def new 
-     @employees = TeamMember.where( team_id: @team.id)
+        staff_already_team_leader = TeamLeader.where(team_id: @team.id).pluck(:user_id)
+     @employees = User.staff.where.not(id: staff_already_team_leader)
+     
     end
     def create
     end
