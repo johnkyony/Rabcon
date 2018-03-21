@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'time_sheet_reports/index'
+
   get 'timesheets/index'
 
 
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   resources :users
   
   # unnested routes 
+  resources :timesheets
   resources :staff_details
   resources :payroll_details
   resources :departments

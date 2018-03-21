@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: staff_details
+#
+#  id                    :integer          not null, primary key
+#  employee_full_name    :string
+#  address               :string
+#  birthdate             :datetime
+#  id_or_passport_number :string
+#  employee_number       :string
+#  user_id               :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
 class StaffDetail < ActiveRecord::Base
   belongs_to :user
   validates :employee_full_name , presence: true

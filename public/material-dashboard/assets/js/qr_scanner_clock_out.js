@@ -1,4 +1,4 @@
-function openQRCamera(node) {
+function openQRCameraClockOut(node) {
   var reader = new FileReader();
   reader.onload = function() {
     node.value = "";
@@ -6,7 +6,7 @@ function openQRCamera(node) {
       if(res instanceof Error) {
         alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
       } else {
-        $.post("../clock_ins" , {user_id: res });
+        $.post("../clock_outs" , {user_id: res });
         // node.parentNode.previousElementSibling.value = res;
       }
     };

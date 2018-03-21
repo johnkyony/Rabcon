@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  department_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  description   :string
+#
+
 class Team < ActiveRecord::Base
   belongs_to :deparment
   has_many :team_members

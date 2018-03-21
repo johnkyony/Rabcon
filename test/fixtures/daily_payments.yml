@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: daily_payments
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  clock_in_id  :integer
+#  clock_out_id :integer
+#  amount       :float
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 

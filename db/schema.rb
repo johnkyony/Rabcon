@@ -11,27 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223065553) do
+ActiveRecord::Schema.define(version: 20180320090427) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "clock_ins", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "team_leader_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "time_clocked_in"
   end
 
-  add_index "clock_ins", ["team_leader_id"], name: "index_clock_ins_on_team_leader_id"
-  add_index "clock_ins", ["user_id"], name: "index_clock_ins_on_user_id"
+  add_index "clock_ins", ["team_leader_id"], name: "index_clock_ins_on_team_leader_id", using: :btree
+  add_index "clock_ins", ["user_id"], name: "index_clock_ins_on_user_id", using: :btree
 
   create_table "clock_outs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "team_leader_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.datetime "time_clocked_out"
   end
 
-  add_index "clock_outs", ["team_leader_id"], name: "index_clock_outs_on_team_leader_id"
-  add_index "clock_outs", ["user_id"], name: "index_clock_outs_on_user_id"
+  add_index "clock_outs", ["team_leader_id"], name: "index_clock_outs_on_team_leader_id", using: :btree
+  add_index "clock_outs", ["user_id"], name: "index_clock_outs_on_user_id", using: :btree
 
   create_table "daily_payments", force: :cascade do |t|
     t.integer  "user_id"
@@ -42,9 +47,9 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "daily_payments", ["clock_in_id"], name: "index_daily_payments_on_clock_in_id"
-  add_index "daily_payments", ["clock_out_id"], name: "index_daily_payments_on_clock_out_id"
-  add_index "daily_payments", ["user_id"], name: "index_daily_payments_on_user_id"
+  add_index "daily_payments", ["clock_in_id"], name: "index_daily_payments_on_clock_in_id", using: :btree
+  add_index "daily_payments", ["clock_out_id"], name: "index_daily_payments_on_clock_out_id", using: :btree
+  add_index "daily_payments", ["user_id"], name: "index_daily_payments_on_user_id", using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -63,7 +68,7 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.datetime "updated_at",                           null: false
   end
 
-  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "payroll_details", force: :cascade do |t|
     t.string   "employees_work_week_start"
@@ -76,7 +81,7 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "payroll_details", ["user_id"], name: "index_payroll_details_on_user_id"
+  add_index "payroll_details", ["user_id"], name: "index_payroll_details_on_user_id", using: :btree
 
   create_table "staff_details", force: :cascade do |t|
     t.string   "employee_full_name"
@@ -89,7 +94,7 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.datetime "updated_at",            null: false
   end
 
-  add_index "staff_details", ["user_id"], name: "index_staff_details_on_user_id"
+  add_index "staff_details", ["user_id"], name: "index_staff_details_on_user_id", using: :btree
 
   create_table "taxes", force: :cascade do |t|
     t.string   "name"
@@ -105,8 +110,8 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "team_leaders", ["team_id"], name: "index_team_leaders_on_team_id"
-  add_index "team_leaders", ["team_member_id"], name: "index_team_leaders_on_team_member_id"
+  add_index "team_leaders", ["team_id"], name: "index_team_leaders_on_team_id", using: :btree
+  add_index "team_leaders", ["team_member_id"], name: "index_team_leaders_on_team_member_id", using: :btree
 
   create_table "team_members", force: :cascade do |t|
     t.integer  "team_id"
@@ -115,8 +120,8 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id"
-  add_index "team_members", ["user_id"], name: "index_team_members_on_user_id"
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+  add_index "team_members", ["user_id"], name: "index_team_members_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
@@ -126,7 +131,7 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.string   "description"
   end
 
-  add_index "teams", ["department_id"], name: "index_teams_on_department_id"
+  add_index "teams", ["department_id"], name: "index_teams_on_department_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -145,7 +150,7 @@ ActiveRecord::Schema.define(version: 20180223065553) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
