@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   has_many :team_leaders
 
   def set_default_role
-    self.role ||= :admin
+    self.role ||= :client
   end
 end
