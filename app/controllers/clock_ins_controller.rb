@@ -1,18 +1,19 @@
 class ClockInsController < ApplicationController
+    respond_to :html , :json 
 
     def new
         @clock_in = ClockIn.new
     end
     
+   
+    
     def create 
-        check_clocked_in_status(params[:user_id])
+        check_clocked_in_status(clock_ins_params)
          
         # remember to make into function
-       
-        
-
-       
+      
     end
+    
     private 
 
         def check_clocked_in_status(user_id)
@@ -33,4 +34,8 @@ class ClockInsController < ApplicationController
         end
             
         end
+        
+    def clock_ins_params
+        params.require(:clock_in).permit(:user_id)
+    end    
 end

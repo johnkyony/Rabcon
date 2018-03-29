@@ -1,4 +1,5 @@
 class ClockOutsController < ApplicationController
+    respond_to :html , :json
 	def new
         @clock_out = ClockOut.new
     end
@@ -26,7 +27,7 @@ class ClockOutsController < ApplicationController
 		            redirect_to timesheets_index_path
 
 		        else
-		            flash[:notice] = "Th ${@clock_out.user.name} has been signed in before"
+		            flash[:notice] = "Th ${clock_out.user.name} has been signed in before"
 		            redirect_to timesheets_index_path
 		        end
             

@@ -1,3 +1,5 @@
+require 'socket'
+require 'ipaddr'
 Rails.application.configure do
     config.middleware.use Rack::LiveReload
 
@@ -40,4 +42,9 @@ Rails.application.configure do
     
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  #   the auto discovery of webconsole
+    config.web_console.whitelisted_ips = Socket.ip_address_list.reduce([]) do |res, addrinfo|
+      addrinfo.ipv4? ? res << IPAddr.new(addrinfo.ip_address).mask(24) : res
+    end
 end
