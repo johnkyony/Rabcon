@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'payroll_reports/index'
+
   get 'time_sheet_reports/index'
 
   get 'timesheets/index'

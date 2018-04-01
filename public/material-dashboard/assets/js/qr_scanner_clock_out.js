@@ -8,6 +8,13 @@ function openQRCameraClockOut(node) {
       } else {
         $.post("../clock_outs" , {user_id: res });
         // node.parentNode.previousElementSibling.value = res;
+        return $.notify({
+                // options
+                message: 'Successfully clocked out staff , you can clock out another one' 
+              },{
+                // settings
+                type: 'info'
+              });
       }
     };
     qrcode.decode(reader.result);

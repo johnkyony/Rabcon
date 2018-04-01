@@ -30,7 +30,12 @@ class TeamsController < ApplicationController
     
     def show
      @employees = TeamMember.where(team_id: params[:id])
-     @team_leader_details = TeamLeader.find_by_team_id( params[:id])
+     if ! @employees.blank?
+       team_leader = TeamLeader.find_by_team_id( params[:id])
+       @team_leader_staff_status = User.find_by_id(team_leader.team_member_id).staff?
+       @team_leader_details = StaffDetail.where(user_id: team_leader.team_member_id).first
+     end
+     
 
     end
     

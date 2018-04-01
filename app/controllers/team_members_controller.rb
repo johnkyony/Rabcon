@@ -20,6 +20,7 @@ class TeamMembersController < ApplicationController
     def edit 
     end
     def new 
+      
      staff_already_in_team = TeamMember.where(team_id: @team.id).pluck(:user_id)
      @employees = User.staff.where.not(id: staff_already_in_team)
      
@@ -34,10 +35,19 @@ class TeamMembersController < ApplicationController
     
     def set_department
         @department = Department.find_by_id(params[:department_id])
+        if @department.blank?
+          redirect_to :back 
+          flash[:notice] = "Please create a new department"
+          
+        end
     
     end
     
     def set_team 
         @team = Team.find_by_id(params[:team_id])
+        if @team.blank?
+          redirect_to :back 
+          flash[:notice] = "Please create a new team"
+        end
     end
 end

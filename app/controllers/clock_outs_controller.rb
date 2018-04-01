@@ -1,4 +1,5 @@
 class ClockOutsController < ApplicationController
+     skip_before_action :verify_authenticity_token
     respond_to :html , :json
 	def new
         @clock_out = ClockOut.new

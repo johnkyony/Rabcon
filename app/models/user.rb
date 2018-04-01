@@ -28,7 +28,10 @@ class User < ActiveRecord::Base
   enum role: [:client, :staff , :contractor , :developer, :admin]
   after_initialize :set_default_role, :if => :new_record?
   has_many :team_members
-  has_many :team_leaders
+  has_many :team_leaders 
+  has_many :payroll_details
+  has_many :staff_details
+  has_many :payments
 
   def set_default_role
     self.role ||= :client

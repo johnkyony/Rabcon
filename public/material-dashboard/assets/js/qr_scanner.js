@@ -7,6 +7,13 @@ function openQRCamera(node) {
         alert("No QR code found. Please make sure the QR code is within the camera's frame and try again.");
       } else {
         $.post("../clock_ins" , {user_id: res });
+        return $.notify({
+                // options
+                message: 'Successfully clocked in staff , you can clock in another one' 
+              },{
+                // settings
+                type: 'info'
+              });
         // node.parentNode.previousElementSibling.value = res;
       }
     };

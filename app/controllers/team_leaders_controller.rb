@@ -1,5 +1,6 @@
 class TeamLeadersController < ApplicationController
     before_action :set_team
+    before_action :set_team_members
     def index 
       @team_leader = TeamLeader.new
       @team_leader.team_id = params[:team_id]
@@ -20,8 +21,16 @@ class TeamLeadersController < ApplicationController
     def edit 
     end
     def new 
-        staff_already_team_leader = TeamLeader.where(team_id: @team.id).pluck(:user_id)
-     @employees = User.staff.where.not(id: staff_already_team_leader)
+       
+        staff_team_member = TeamMember.where(team_id: @team.id ).pluck(:user_id)
+        if ! staff_team_member.blank?
+          staff_already_team_leader = TeamLeader.where(team_id: @team.id).pluck(:team_member_id)
+          @employees = User.staff.where.not(id: staff_already_team_leader)
+        else
+          redirect_to :back 
+          flash[:success] = "Add Some team members first"
+        end
+         
      
     end
     def create
@@ -35,5 +44,21 @@ class TeamLeadersController < ApplicationController
        
     def set_team 
         @team = Team.find_by_id(params[:team_id])
+        if @team.blank?
+
+         redirect_to :back 
+         flash[:notice] = " Create a team first"
+          
+        end
+    end
+
+    def set_team_members
+      @team_members = TeamMember.where(team_id: params[:team_id])
+      if @team_members.blank?
+        redirect_to :back 
+        flash[:notice] = "Add team members before adding a new team leader"
+        
+      end
+      
     end
 end
