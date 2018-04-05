@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
   has_many :payroll_details
   has_many :staff_details
   has_many :payments
+  has_many :clock_in
+  has_many :clock_out
 
   def set_default_role
     self.role ||= :client

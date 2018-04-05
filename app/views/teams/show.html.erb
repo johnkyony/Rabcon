@@ -16,7 +16,8 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th> <%= link_to "Timesheet Report" ,time_sheet_reports_index_path , class: "btn btn-primary btn-round" %></th>
+                        <th></th>
+                        
                     </thead>
                     <tbody>
                        
@@ -25,6 +26,7 @@
                             <td><%= employee.id %></td>
                             <td><%= employee.user.name %></td>
                             <td><%= employee.user.email %></td>
+                            <td> <%= link_to "Timesheet Report" ,user_time_sheet_reports_path(employee.user_id) , class: "btn btn-primary btn-round" %></td>
                         </tr>
                        
                         <% end %>

@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
 
 
-  get 'payroll_reports/index'
 
-  get 'time_sheet_reports/index'
 
   get 'timesheets/index'
 
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
   resources :users
   
   # unnested routes 
+  resources :time_sheet_reports
+  resources :payroll_reports
   resources :timesheets
   resources :staff_details
   resources :payroll_details
@@ -55,6 +55,11 @@ Rails.application.routes.draw do
   # the user staff qr access code
   resources :users do 
      resources :qr_codes , only:[:new , :create]
+  end
+  
+  # the user time sheet reports
+  resources :users do 
+    resources :time_sheet_reports
   end
   root to: 'visitors#index'
 end

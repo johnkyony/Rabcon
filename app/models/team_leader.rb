@@ -12,5 +12,7 @@
 class TeamLeader < ActiveRecord::Base
   belongs_to :team
   belongs_to :team_member
+  has_many :clock_in
+  has_many :clock_out
   
 end

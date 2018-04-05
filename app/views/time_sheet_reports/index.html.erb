@@ -1,16 +1,35 @@
  <div class="col-md-12">
     <div class="card">
-        <div class="card-header card-chart" data-background-color="red">
-            <div class="ct-chart" id="completedTasksChart"></div>
-        </div>
+        <!--<div class="card-header card-chart" data-background-color="red">-->
+        <!--    <div class="ct-chart" id="completedTasksChart"></div>-->
+        <!--</div>-->
         <div class="card-content">
-            <h4 class="title">TimeSheet report</h4>
-            <p class="category">This <%= Date.today.strftime("%B") %> team time sheet reports</p>
+            <h4 class="title"><%= @staff.employee_full_name %> <%= Date.today.strftime("%B") %> Time Sheet report</h4>
+            <p class="category">Staff time sheet reports</p>
+             <div class="card-content table-responsive">
+                                    <table class="table">
+                                        <thead class="text-primary">
+                                            <th>Clock In Times</th>
+                                            <th>Clock Out Times</th>
+                                            
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <% @timesheet_report.each do | staff_name , timesheet| %>
+                                                <td><%= timesheet[:time_clocked_in][0] %></td>
+                                                <td><%= timesheet[:time_clocked_out][0] %></td>
+                                               
+                                                <% end %>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
         </div>
-        <div class="card-footer">
-            <div class="stats">
-                <i class="material-icons">access_time</i> campaign sent 2 days ago
-            </div>
-        </div>
+        <!--<div class="card-footer">-->
+        <!--    <div class="stats">-->
+        <!--        <i class="material-icons">access_time</i> campaign sent 2 days ago-->
+        <!--    </div>-->
+        <!--</div>-->
     </div>
 </div>

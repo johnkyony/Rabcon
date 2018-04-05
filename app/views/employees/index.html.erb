@@ -13,6 +13,8 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th></th>
+                        <th></th>
+                        <th></th>
                     </thead>
                     <tbody>
                         <%  @employees.each do |employee| %>
@@ -21,6 +23,7 @@
                             <td><%= employee.name %></td>
                             <td><%= employee.email %></td>
                             <td><%= link_to "Employee Full Details" , user_staff_details_path(employee.id) , class: "btn btn-primary btn-round" %></td>
+                            <td><%= link_to "Timesheet Report" , user_time_sheet_reports_path(employee.id) , class: "btn btn-primary btn-round" %></td>
                         </tr>
                         <% end %>
                         
@@ -28,7 +31,7 @@
                 </table>
             </div>
              <a href="/users" class="btn btn-primary btn-round ">New Employee</a>
-              <%= link_to "Payroll Report" , payroll_reports_index_path , class: "btn btn-primary btn-round" %>
+              <!--<%= link_to "Payroll Report" , payroll_reports_path , class: "btn btn-primary btn-round" %>-->
         </div>
     </div>
 </div>
