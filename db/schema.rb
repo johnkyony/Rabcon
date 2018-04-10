@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320090427) do
+ActiveRecord::Schema.define(version: 20180407161605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,11 @@ ActiveRecord::Schema.define(version: 20180320090427) do
     t.integer  "clock_in_id"
     t.integer  "clock_out_id"
     t.float    "amount"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.float    "regular_hours"
+    t.float    "overtime_hours"
+    t.date     "date_of_working_day"
   end
 
   add_index "daily_payments", ["clock_in_id"], name: "index_daily_payments_on_clock_in_id", using: :btree

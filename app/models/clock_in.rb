@@ -13,4 +13,5 @@
 class ClockIn < ActiveRecord::Base
   belongs_to :user
   belongs_to :team_leader
+  has_many :daily_payment
 end

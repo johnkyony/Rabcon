@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   has_many :payments
   has_many :clock_in
   has_many :clock_out
-
+  has_many :daily_payment
   def set_default_role
     self.role ||= :client
   end
