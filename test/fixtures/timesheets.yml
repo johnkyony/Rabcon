@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: timesheets
+#
+#  id             :integer          not null, primary key
+#  employee_id    :integer
+#  team_leader_id :integer
+#  clock_in_at    :time
+#  clock_out_at   :time
+#  punch_in_on    :date
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: 
+  team_leader: 
+  clock_in_at: 2018-04-16 06:06:21
+  clock_out_at: 2018-04-16 06:06:21
+  punch_in_on: 2018-04-16
+
+two:
+  employee: 
+  team_leader: 
+  clock_in_at: 2018-04-16 06:06:21
+  clock_out_at: 2018-04-16 06:06:21
+  punch_in_on: 2018-04-16

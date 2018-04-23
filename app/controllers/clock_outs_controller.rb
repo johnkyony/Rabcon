@@ -61,13 +61,8 @@ class ClockOutsController < ApplicationController
         end
         
         def time_difference(time_a , time_b)
-            difference = time_b - time_a
-            
-            if difference > 0
-                difference
-            else
-                24 * 3600 + difference
-            end
+            duration = time_b - time_a
+            hours = duration / 3600 
         end
         
 end

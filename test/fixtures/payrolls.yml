@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: payrolls
+#
+#  id                            :integer          not null, primary key
+#  employee_id                   :integer
+#  employees_work_week_start     :string
+#  work_week_hours               :integer
+#  regular_hourly_payrate        :float
+#  daily_or_weekly_straight_time :integer
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: 
+  employees_work_week_start: MyString
+  work_week_hours: 1
+  regular_hourly_payrate: 1.5
+  daily_or_weekly_straight_time: 1
+
+two:
+  employee: 
+  employees_work_week_start: MyString
+  work_week_hours: 1
+  regular_hourly_payrate: 1.5
+  daily_or_weekly_straight_time: 1
